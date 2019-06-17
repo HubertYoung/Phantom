@@ -56,19 +56,14 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
-    implementation "com.wlqq.phantom:phantom-host-lib:${phantomVersion.hostLib}"
-    implementation "com.wlqq.phantom:phantom-communication-lib:${phantomVersion.communicationLib}"
-
     implementation "com.android.support:support-v4:${androidVersion.supportLib}"
     implementation "com.android.support:appcompat-v7:${androidVersion.supportLib}"
     implementation "com.android.support:recyclerview-v7:${androidVersion.supportLib}"
-
     implementation 'io.github.shaobin0604:awesomelog:1.0.1'
-
     testImplementation "junit:junit:${testVersion.junit}"
-
     implementation 'com.tencent.bugly:crashreport_upgrade:1.1.7'
+    implementation project(':phantom-communication-lib')
+    implementation project(':phantom-host-lib')
 }
 
 // use the latest phantom-host-lib source code to build sample

@@ -22,7 +22,7 @@ dependencies {
     compileOnly "com.android.tools.build:gradle:3.1.4"
     compile 'org.javassist:javassist:3.18.2-GA'
     // https://mvnrepository.com/artifact/org.jooq/joor-java-6
-    compile group: 'org.jooq', name: 'joor-java-6', version: '0.9.10'
+    compile 'org.jooq:joor-java-6:0.9.10'
 }
 
 ext {

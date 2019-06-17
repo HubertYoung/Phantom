@@ -61,7 +61,9 @@ import java.util.Stack;
  *
  * @see <a href="https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning">"Versioning" on Maven Wiki</a>
  */
-// 该文件主要拷贝自 maven 项目的 https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java。
+// 该文件主要拷贝自 maven 项目的
+// https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/
+// apache/maven/artifact/versioning/ComparableVersion.java。
 // 为方便以后获取源的更新，忽略 checkstyle 检查
 @SuppressWarnings({"checkstyle:MemberName", "checkstyle:ConstantName", "checkstyle:EmptyForIteratorPad"})
 public class Version implements Comparable<Version> {
@@ -113,7 +115,7 @@ public class Version implements Comparable<Version> {
         }
     }
 
-    private final void parseVersion(String version) {
+    private void parseVersion(String version) {
         this.value = version;
 
         items = new ListItem();
@@ -252,9 +254,9 @@ public class Version implements Comparable<Version> {
     }
 
     private interface Item {
-        final int INTEGER_ITEM = 0;
-        final int STRING_ITEM = 1;
-        final int LIST_ITEM = 2;
+       int INTEGER_ITEM = 0;
+       int STRING_ITEM = 1;
+       int LIST_ITEM = 2;
 
         int compareTo(Item item);
 
@@ -276,7 +278,7 @@ public class Version implements Comparable<Version> {
             this.value = BigInteger_ZERO;
         }
 
-        public IntegerItem(String str) {
+        IntegerItem(String str) {
             this.value = new BigInteger(str);
         }
 
@@ -337,7 +339,7 @@ public class Version implements Comparable<Version> {
 
         private String value;
 
-        public StringItem(String value, boolean followedByDigit) {
+        StringItem(String value, boolean followedByDigit) {
             if (followedByDigit && value.length() == 1) {
                 // a1 = alpha-1, b1 = beta-1, m1 = milestone-1
                 switch (value.charAt(0)) {
@@ -349,6 +351,9 @@ public class Version implements Comparable<Version> {
                         break;
                     case 'm':
                         value = "milestone";
+                        break;
+                    default:
+                        value = "alpha";
                         break;
                 }
             }

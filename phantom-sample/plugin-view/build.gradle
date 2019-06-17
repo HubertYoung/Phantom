@@ -51,16 +51,12 @@ android {
 }
 
 dependencies {
-    compileOnly "com.wlqq.phantom:phantom-communication-lib:${phantomVersion.communicationLib}"
-    compileOnly "com.wlqq.phantom:phantom-plugin-lib:${phantomVersion.pluginLib}"
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:support-v4:${androidVersion.supportLib}"
-
     implementation 'io.github.shaobin0604:awesomelog:1.0.1'
-
     testImplementation 'junit:junit:4.12'
+    compileOnly project(':phantom-communication-lib')
+    compileOnly project(':phantom-plugin-lib')
 }
 
 def deletePluginInHost() {

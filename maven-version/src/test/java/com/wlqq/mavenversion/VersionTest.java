@@ -18,7 +18,6 @@ package com.wlqq.mavenversion;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 public class VersionTest {
     @Test
     public void testCreateVersion() throws Exception {
